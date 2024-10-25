@@ -1,0 +1,14 @@
+create database depression;
+use depression;
+
+create table users(username varchar(50),
+password varchar(50),
+contact_no  varchar(12),
+email  varchar(50),
+address  varchar(50));
+
+create table postdata(username varchar(50),
+post_data varchar(500),
+post_time timestamp,
+depression varchar(50),
+motivate_post varchar(500));

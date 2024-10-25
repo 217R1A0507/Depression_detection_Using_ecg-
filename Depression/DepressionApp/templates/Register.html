@@ -1,0 +1,106 @@
+{% load static %}
+<html>
+<head>
+<title>Depression Detection</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" media="screen" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter User ID");
+	formObj.t1.focus();
+	return false;
+	}
+	if(formObj.t2.value.length==0)
+	{
+	alert("Please Enter Password");
+	formObj.t2.focus();
+	return false;
+	}
+	if(formObj.t3.value.length==0)
+	{
+	alert("Please Enter Contact No");
+	formObj.t3.focus();
+	return false;
+	}
+	if(!formObj.t3.value.match(/^\d{10}$/)){
+		window.alert("Valid phone no must be enter");
+		document.f1.t3.focus();
+		return false;
+	}
+	if(formObj.t4.value.length==0)
+	{
+	alert("Please Enter Email ID");
+	formObj.t4.focus();
+	return false;
+	}
+	var filter = /^([a-zA-Z0-9_\.\-])+\@([a-z]+\.)+(com)+$/;
+    if (!filter.test(formObj.t4.value)) {
+		window.alert('Please enter valid email address');
+		document.f1.t4.focus();
+		return false;
+	}
+	if(formObj.t5.value.length==0)
+	{
+	alert("Please Enter Address");
+	formObj.t5.focus();
+	return false;
+	}
+	
+	formObj.actionUpdateData.value="update";
+	return true;
+	}
+	</script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1>Online Depression Detection Application</h1>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'Login' %}">User</a></li>
+      <li><a href="{% url 'Register' %}">Register Here</a></li>
+      <li><a href="{% url 'Admin' %}">Administrator</a></li>
+   </ul>					<br class="clearfix" />
+				</div>
+			
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.JPG' %}" width="870" height="230" alt="" />
+	</div>	
+			<center>
+<form name="f1" method="post" action="{% url 'Signup' %}" onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <h2><b>New User Registration Screen</b></h2>
+
+   <center><font face="verdana" color="red">{{ data }}</font></center>
+   
+					
+						<table align="center" width="40" >
+			 <tr><td><b>Username</b></td><td><input type="text" name="t1" style="font-family: Comic Sans MS" size=30/></td></tr>
+         
+		  <tr><td><b>Password</b></td><td><input type="password" name="t2" style="font-family: Comic Sans MS" size=30/></td></tr>
+
+		  <tr><td><b>Contact&nbsp;No</b></td><td><input type="text" name="t3" style="font-family: Comic Sans MS" size=15/></td></tr>
+
+		  <tr><td><b>Email ID</b></td><td><input type="text" name="t4" style="font-family: Comic Sans MS" size=30/></td></tr>
+
+		  <tr><td><b>Address</b></td><td><input type="text" name="t5" style="font-family: Comic Sans MS" size=50/></td></tr>
+
+		
+			<tr><td></td><td><input type="submit" value="Register"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+	</body>
+</html>

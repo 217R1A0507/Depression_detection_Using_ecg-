@@ -1,0 +1,10 @@
+First install python 
+
+Then install ‘tesseract-ocr-setup-3.02.02’ (this software u can find inside code folder and its used to extract text from images) software in C directory 
+and then set path for tesseract-ocr-setup-3.02.02 file using below environment variable under system tab
+Variable name : tesseract
+Variable value =  C:\Tesseract-OCR\tesseract.exe
+
+install audio to text software using below command
+
+pip install SpeechRecognition
